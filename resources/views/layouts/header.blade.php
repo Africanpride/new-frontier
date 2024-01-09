@@ -1,123 +1,103 @@
-<header
-class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white  border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-firefly-900 dark:border-gray-700">
-<nav class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
-    aria-label="Global">
-    <div class="flex items-center justify-between">
-        <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="#" aria-label="Brand">
-        <x-branding />
-        </a>
-        <div class="sm:hidden flex gap-x-2 items-center">
-            <x-dark-switch />
-            <button type="button"
-                class="hs-collapse-toggle w-9 h-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                data-hs-collapse="#navbar-collapse-with-animation"
-                aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
-                <svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" x2="21" y1="6" y2="6" />
-                    <line x1="3" x2="21" y1="12" y2="12" />
-                    <line x1="3" x2="21" y1="18" y2="18" />
-                </svg>
-                <svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div id="navbar-collapse-with-animation"
-        class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-        <div
-            class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
-            <a class="font-medium text-blue-600 sm:py-6 dark:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                href="#" aria-current="page">Landing</a>
-                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
-            <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                href="#">Work</a>
-            <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                href="#">Blog</a>
 
-            <div
-                class="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4">
-                <button type="button"
-                    class="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                    Dropdown
-                    <svg class="flex-shrink-0 ms-2 w-4 h-4 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m6 9 6 6 6-6" />
-                    </svg>
+
+ <!-- ========== HEADER ========== -->
+ <header
+     class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-md  py-4 bg-white backdrop-blur-md
+md:backdrop-blur-none dark:bg-firefly-900 text-sm  sticky top-0 inset-x-0  sm:justify-start sm:flex-nowrap !font-bold
+ border-b  sm:py-0  dark:border-gray-700/20">
+
+     <nav class="max-w-[95rem] flex flex-wrap basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8 py-3"
+         aria-label="Global">
+         <x-branding />
+
+
+         <div class="flex items-center gap-x-3 ml-auto md:pl-3 md:order-3">
+             <div
+                 class="pl-4 flex justify-between items-center gap-4   md:before:w-px md:before:h-4 before:bg-gray-300 dark:before:bg-gray-700">
+                 <a class="pl-3" href="https://www.youtube.com/@costrad6590" target="_blank">
+                     <img class="h-4" src="{{ asset('images/main/youtube.png') }}" />
+                    </a>
+
+                 <x-dark-switch />
+
+                 <x-front-auth />
+
+             </div>
+
+
+
+
+             <div class="sm:hidden">
+                <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:bg-white/10 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-collapse="#navbar-slide-up-animation" aria-controls="navbar-slide-up-animation" aria-label="Toggle navigation">
+                  <svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                  <svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
+              </div>
 
-                <div
-                    class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 bg-white sm:shadow-md rounded-lg p-2 dark:bg-gray-800 sm:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute top-full sm:border before:-top-5 before:start-0 before:w-full before:h-5">
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        href="#">
-                        About
-                    </a>
-                    <div
-                        class="hs-dropdown relative [--strategy:static] sm:[--strategy:absolute] [--adaptive:none] sm:[--trigger:hover]">
-                        <button type="button"
-                            class="w-full flex justify-between items-center text-sm text-gray-800 rounded-lg py-2 px-3 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                            Sub Menu
-                            <svg class="sm:-rotate-90 flex-shrink-0 ms-2 w-4 h-4 text-gray-600"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+         </div>
 
-                        <div
-                            class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 sm:mt-2 bg-white sm:shadow-md rounded-lg p-2 dark:bg-gray-800 sm:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute sm:border before:-end-5 before:top-0 before:h-full before:w-5 top-0 end-full !mx-[10px]">
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="#">
-                                About
-                            </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="#">
-                                Downloads
-                            </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="#">
-                                Team Account
-                            </a>
-                        </div>
-                    </div>
+         <div id="docs-navbar"
+             class="hs-collapse overflow-hidden hidden transition-all duration-300 basis-full grow ml-auto md:block md:w-auto md:basis-auto md:order-2 open  tracking-wide
+             overflow-y-auto max-h-[75vh] scrollbar-y"
+             style="">
+             <div
+                 class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
 
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        href="#">
-                        Downloads
-                    </a>
-                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        href="#">
-                        Team Account
-                    </a>
-                </div>
-            </div>
-            <div class="hidden md:inline-block ">
-                <x-dark-switch />
-            </div>
 
-            <a class="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-s sm:border-gray-300 sm:my-6 sm:ps-6 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500"
-                href="#">
-                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
-                Log in
-            </a>
-        </div>
-    </div>
 
-</nav>
-</header>
+                 <div class=" dark:text-firefly-200 text-firefly-700 flex justify-start items-center gap-2 py-4">
+
+                     <a href="{{ url('/') }}"
+                         class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500
+                         hover:dark:text-firefly-300
+    {{ Request::is('home') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                         Home
+
+                     </a>
+                 </div>
+                 <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2 py-4">
+
+                     <a href="{{ url('about') }}"
+                         class=" text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+    {{ Request::is('about') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+                         About
+
+                     </a>
+                 </div>
+
+
+                 {{-- @livewire('institutes-list') --}}
+
+                 <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2 py-4">
+
+                     <a href="{{ url('news') }}"
+                         class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+{{ Request::is('news') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+
+                         {{ __('News') }}
+                     </a>
+
+                 </div>
+
+                 <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2 py-4">
+
+                     <a href="{{ url('institute.show') }}"
+                         class="  text-firefly-700 dark:text-firefly-200 hover:text-firefly-500 hover:dark:text-firefly-300
+{{ Request::is('costrad') ? 'font-bold text-firefly-600 dark:text-firefly-100 hover:text-firefly-400 hover:dark:text-firefly-200' : '' }} ">
+
+                         {{ __('COSTrAD') }}
+                     </a>
+                 </div>
+
+                 <div class="text-firefly-700 dark:text-firefly-200 flex justify-start items-center gap-2 py-4">
+
+                     <a href="{{ url('donate') }}">
+                         <span
+                             class=" inline bg-firefly-50 border border-firefly-300 text-firefly-600 text-[.6125rem] leading-4 uppercase rounded-full py-1 px-3 dark:bg-firefly-900/[.75] dark:border-firefly-700 dark:text-firefly-500">{{ __('Donate') }}</span>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </nav>
+
+ </header>
